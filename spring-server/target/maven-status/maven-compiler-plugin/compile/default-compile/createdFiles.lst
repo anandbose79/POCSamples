@@ -1,0 +1,16 @@
+io/swagger/api/MemberApi.class
+io/swagger/model/MemberInformation.class
+io/swagger/model/PersonType.class
+io/swagger/service/ServiceRepository.class
+io/swagger/api/ApiOriginFilter.class
+io/swagger/Swagger2SpringBoot.class
+io/swagger/api/ApiResponseMessage.class
+io/swagger/Swagger2SpringBoot$ExitException.class
+io/swagger/configuration/HomeController.class
+io/swagger/api/NotFoundException.class
+io/swagger/service/ServiceInterface.class
+io/swagger/repo/MemberRepo.class
+io/swagger/configuration/SwaggerDocumentationConfig.class
+io/swagger/RFC3339DateFormat.class
+io/swagger/api/ApiException.class
+io/swagger/api/MemberApiController.class
