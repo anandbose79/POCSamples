@@ -14,12 +14,12 @@ Also there is a docker folder which contains the following files:
   This script is used to import data into mongo db.This is for reference only and should not be executed directly
 - importtodocker.sh
   This script takes in the docker container id as input and runs addentries to import data to mongodb docker image
-  '''
+```
   usage :
   ./importtodocker.sh <containerid>
   eg:
   ./importtodocker.sh 47978b1a8861
-  '''
+```
 
 The swagger code is available at:
 src/main/resources/smr-poc-MongoDB
