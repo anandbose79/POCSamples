@@ -1,0 +1,167 @@
+swagger: "2.0"
+info:
+  description: "MongoDBService-Example"
+  version: "1.0.0"
+  title: "MongoDB sample Proof of concept"
+  contact:
+    email: "anand_bose@bcbstx.com"
+
+host: "localhost"
+basePath: "/v1/hcsc/smr/mongopoc"
+schemes:
+- "http"
+- "https"
+parameters:
+  memberId:
+    in: path
+    name: memberId
+    description: member ID
+    required: true
+    type: string
+  memberInfo:
+    name: memberinfo
+    in: body
+    schema:
+      $ref: '#/definitions/MemberInformation'
+  memberName:
+    in: query
+    name: memberName
+    description: name of the memberId
+    required: true
+    type: string
+
+
+
+
+
+paths:
+  /member/{memberId}:
+    get:
+      tags:
+      - "GetMemberInformation"
+      summary: "Get member informatoin"
+      description: "This method will retreive the member information"
+      operationId: "getMemberInfo"
+      produces:
+      - "application/json"
+      parameters:
+        - $ref: "#/parameters/memberId"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/MemberInformation"
+    put:
+        tags:
+        - "UpdateMemberInformation"
+        summary: "update member informatoin"
+        description: "This method will retreive the member information"
+        operationId: "updateMemberInfo"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - $ref: "#/parameters/memberId"
+
+
+        responses:
+          405:
+            description: "Invalid input"
+          200:
+            description: "successful operation"
+
+    post:
+        tags:
+        - "CreateMemberInformation"
+        summary: "create member informatoin"
+        description: "This method will create the member information"
+        operationId: "createMemberInfo"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - $ref: "#/parameters/memberId"
+
+
+        responses:
+          405:
+            description: "Invalid input"
+          200:
+            description: "successful operation"
+
+    delete:
+        tags:
+        - "DeleteMemberInformation"
+        summary: "delete member informatoin"
+        description: "This method will delete the member information"
+        operationId: "deleteMemberInfo"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - $ref: "#/parameters/memberId"
+
+
+        responses:
+          405:
+            description: "Invalid input"
+          200:
+            description: "successful operation"
+  /member/findbyName:
+    get:
+      tags:
+      - "GetMemberInformationbyName"
+      summary: "Get member informatoin by Name"
+      description: "This method will retreive the member information by Name"
+      operationId: "getMemberInfobyName"
+      produces:
+      - "application/json"
+      parameters:
+        - $ref: "#/parameters/memberName"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/MemberInformation"
+definitions:
+  MemberInformation:
+    type: object
+    properties:
+      memberId:
+          type: string
+          description: id of the member which is unique
+      memberDetails:
+          $ref: "#/definitions/personType"
+      dependentDetails:
+          type: array
+          items:
+            $ref: "#/definitions/personType"
+
+
+  personType:
+    type: object
+    properties:
+      id:
+        type: string
+      Name:
+        type: string
+        pattern: ^[a-z ,.'-]+$/i
+      Age:
+        type: number
+        format: int32
+      Address:
+        type: string
+      Phonenumber:
+        type: string
+        pattern: ^[1-9]\d{2}-\d{3}-\d{4}
