@@ -15,6 +15,7 @@ public class ServiceRepository implements ServiceInterface{
 	@Override
 	public String createMember(MemberInformation info) {
 		// TODO Auto-generated method stub
+		
 	  	repository.insert(info);
 	  	System.out.println("Data inserted");
 		return null;

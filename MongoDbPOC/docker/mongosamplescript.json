@@ -1,0 +1,5 @@
+[
+  {"_id": "10", "_class" : "io.swagger.model.MemberInformation","memberDetails": { "_id": "10", "name": "John taylor", "age": "34", "address": "1234 plano parkway, Plano,TX", "phonenumber": "1010101010" }, "dependentDetails": [ { "_id": "10-1", "name": "Steph Taylor", "age": "30", "address": "1234 plano parkway,plano,TX", "phonenumber": "11111111111" } ] },
+{"_id": "11","memberId": "11","memberDetails": { "_id": "11", "name": "Smith Paige", "age": "44", "address": "3344 plano parkway, Plano,TX", "phonenumber": "2121212121" }, "dependentDetails": [ { "_id": "11-1", "name": "Mellisa paige", "age": "30", "address": "3344 plano parkway,plano,TX", "phonenumber": "2222222222" } ]},
+  { "_id" : "2", "_class" : "io.swagger.model.MemberInformation", "memberDetails" : { "_id" : "1", "name" : "first", "age" : "19", "address" : "first name", "phonenumber" : "2223332222" }, "dependentDetails" : [ { "_id" : "2-1", "name" : "firstdependent", "age" : "13", "address" : "firstdepaddress", "phonenumber" : "4443332222" } ]  }
+]
