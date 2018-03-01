@@ -7,25 +7,22 @@
 
 ## Instructions on using the library
 
-   The libraty is uploaded in artifactory and has public access. The following snippet needs to be added to the POM file.
-   1. Add the library dependency
+   The library needs to be installed in the local maven repository.
+   The following needs to  be the maven command
+   ```
+   mvn install:install-file -Dfile=<fill path to redislibrary> -DgroupId=com.hcsc.poc.redis -DartifactId=RedisLibrary -Dversion=1.0.0
+   ```  
+
+   The following snippet needs to be added to the client POM file.
+   Add the library dependency
    ```
    <dependency>
-     <groupId>com.anand.redisson</groupId>
-     <artifactId>redissonlib</artifactId>
-     <version>0.0.1-SNAPSHOT</version>
+    <groupId>com.hcsc.poc.redis</groupId>
+    <artifactId>RedisLibrary</artifactId>
+    <version>1.0.0</version>
    </dependency>
    ```
-   2. Add the repository for Artifactory
-   ```
-   <repositories>
-       <repository>
-         <id>snapshots</id>
-         <name>anandsartifactory-snapshots</name>
-         <url>https://anandsartifactory.jfrog.io/anandsartifactory/libs-snapshot-local</url>
-       </repository>
-   </repositories>
-   ```
+
 ## How to use the redisson library
 
   The prerequisite for using the library is to create the client. The client connection can be created by using a YML file with Redisson connection parameters
