@@ -1,0 +1,4 @@
+ redis: 
+    config: "/Users/anandbose/hcsc/poc/redis/redis-local-cluster.yml"     
+    ttl: 
+      test: 3M
