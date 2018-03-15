@@ -1,0 +1,35 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /v1/test
+      
+spring:
+  application:
+    name: circuitbreaker-demo-app
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+config:
+  percentage: 50
+    
+hystrix:
+  command:
+    testKey:
+      execution:
+        timeout:
+          enabled: true
+        isolation:     
+          thread:
+            timeoutInMilliseconds: 3000 
+      circuitBreaker:
+            enabled: true    
+            requestVolumeThreshold: 20
+            errorThresholdPercentage: 50   
+            sleepWindowInMilliseconds: 5000
+    
+    
+
+    
