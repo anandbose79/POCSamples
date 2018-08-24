@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.example.demo.models.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,23 +11,23 @@ import javax.persistence.ManyToOne;
 
 @Entity(name = "temperatures")
 @Table(name = "temperatures")
-public class Temperatures {
+public class TemperaturesEntity {
 	@Id
 	@GeneratedValue()
 	private Long id;
 
 	private Float temperature;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "weather_id")
-//    private Weather weather;
-//    
-//    public Weather getWeather() {
-//		return weather;
-//	}
-//	public void setWeather(Weather weather) {
-//		this.weather = weather;
-//	}
-	public Temperatures()
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "weather_id")
+    private WeatherEntity weather;
+    
+    public WeatherEntity getWeather() {
+		return weather;
+	}
+	public void setWeather(WeatherEntity weather) {
+		this.weather = weather;
+	}
+	public TemperaturesEntity()
     {
     	
     }
@@ -44,7 +44,7 @@ public class Temperatures {
 		this.temperature = temperature;
 	}
 
-	public Temperatures(Long id, Float temperature, Weather weather) {
+	public TemperaturesEntity(Long id, Float temperature, WeatherEntity weather) {
 		super();
 		this.id = id;
 		this.temperature = temperature;

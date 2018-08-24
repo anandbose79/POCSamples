@@ -1,43 +1,11 @@
 package com.example.demo.models;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-
-@Entity(name = "location")
-@Table(name = "location")
 public class Location {
-	@Id
-	@GeneratedValue
+
 	private Long id;
 	private String locationName;
 	private Float latitude;
-	private Float longitude;  
-//	@OneToOne(fetch = FetchType.LAZY)
-//    @MapsId
-//    private Weather weather;
-	
-	public Location(Long id, String locationName, Float latitude, Float longitude, Weather weather) {
-		super();
-		this.id = id;
-		this.locationName = locationName;
-		this.latitude = latitude;
-		this.longitude = longitude;
-	//	this.weather = weather;
-	}
-//	public Weather getWeather() {
-//		return weather;
-//	}
-//	public void setWeather(Weather weather) {
-//		this.weather = weather;
-//	}
-	public Location() {
-		
-	}
+	private Float longitude;
 	public Long getId() {
 		return id;
 	}
@@ -65,12 +33,18 @@ public class Location {
 	@Override
 	public String toString() {
 		return "Location [id=" + id + ", locationName=" + locationName + ", latitude=" + latitude + ", longitude="
-				+ longitude +  ", " + ", getId()=" + getId()
-				+ ", getLocationName()=" + getLocationName() + ", getLatitude()=" + getLatitude() + ", getLongitude()="
-				+ getLongitude() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+				+ longitude + "]";
 	}
+	public Location(Long id, String locationName, Float latitude, Float longitude) {
+		super();
+		this.id = id;
+		this.locationName = locationName;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}  
 
-
-
+    public Location()
+    {
+    	
+    }
 }

@@ -9,20 +9,20 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.models.Weather;
+import com.example.demo.models.entity.WeatherEntity;
 
 @Repository
 
-public interface WeatherRepository extends JpaRepository <Weather, Long> {
+public interface WeatherRepository extends JpaRepository <WeatherEntity, Long> {
 
-    List<Weather> findAll();
+    List<WeatherEntity> findAll();
 //    @Query("select w from weather w where w.weather_date = ?1")
     @Query("select w from weather w where w.weatherDate = ?1")
-    public List<Weather> findBydate(Date dt);
+    public List<WeatherEntity> findBydate(Date dt);
     @Query("select w from weather w where w.id = ?1")
-	public List<Weather> findBypkey(Long id);
-    @Query("select w from weather w join w.location l where l.latitude = ?1")
-	public List<Weather> findBylatitude(Float latitude);
+	public List<WeatherEntity> findBypkey(Long id);
+    @Query("select w from weather w join w.location l where l.latitude = ?1 and l.longitude = ?2")
+	public List<WeatherEntity> findBylatitude(Float latitude, Float longitude);
     @Query("select w from weather w join w.temperatures t where t.temperature > 100 ")
-    public List<Weather> findBytemp(Float temperature)
+    public List<WeatherEntity> findBytemp(Float temperature)
 ;}

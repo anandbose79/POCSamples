@@ -8,15 +8,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.models.Weather;
+import com.example.demo.models.entity.WeatherEntity;
 
 @Repository
 
-public interface LocationRepository extends JpaRepository <Weather, Long> {
+public interface LocationRepository extends JpaRepository <WeatherEntity, Long> {
 
-    List<Weather> findAll();
+    List<WeatherEntity> findAll();
 //    @Query("select w from weather w where w.weather_date = ?1")
     @Query("select w from weather w where w.weatherDate = ?1")
-    public List<Weather> findBydate(Date dt);
+    public List<WeatherEntity> findBydate(Date dt);
     
 }
