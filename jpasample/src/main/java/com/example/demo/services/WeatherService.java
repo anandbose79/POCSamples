@@ -90,14 +90,24 @@ public class WeatherService implements WeatherServiceInterface {
 	@Override
 	public ResponseEntity<List<Weather>> getWeatherbyDate(String input) {
 		// TODO Auto-generated method stub
-		Date d = 
-		List<Weather> w = transformEntitytoWeather(rs.findBylatitude(latitude,Longitude));
+		SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dFormat.setTimeZone(TimeZone.getTimeZone("CST"));
+		Date d = new Date();
+		try
+		{
+			d= dFormat.parse(input);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	
+		List<Weather> w = transformEntitytoWeather(rs.findBydate(d));
 		if (w==null || w.size() == 0)
 			return new ResponseEntity<List<Weather>>(w,HttpStatus.NOT_FOUND);
 		else
 			return new ResponseEntity<List<Weather>>(w,HttpStatus.OK);
 		
-		return null;
 	}
 
 	@Override
@@ -141,7 +151,8 @@ public class WeatherService implements WeatherServiceInterface {
 			}
 			w.setTemperatures(temperatures);
 			w.setLocation(l);
-			w.setWeatherDate(wEntity.getWeatherDate());
+			
+			w.setWeatherDate(wEntity.getWeatherDate().toString());
 			w.setId(wEntity.getId());
 			wList.add(w);
 		}

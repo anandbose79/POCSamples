@@ -28,31 +28,8 @@ public class WeatherController {
 	@RequestMapping(value = "/querybyDate", method = RequestMethod.GET)
 	public ResponseEntity<List<Weather>> getByDate(@RequestParam String inputDate)
 	{
-//		System.out.println("Here ::"+inputDate);
-//        try
-//        {
-//    		Date dt = new SimpleDateFormat("yyyy-MM-dd").parse(inputDate);
-//
-//        	List<Weather> w = rs.findBydate(dt);
-//        	if (w == null)
-//        	{
-//        	
-//        		return new ResponseEntity<List<Weather>>(w,HttpStatus.NOT_FOUND);
-//        	}
-//        	else
-//        	{
-//        		System.out.println(w.size());
-//        		return new ResponseEntity<List<Weather>>(w,HttpStatus.OK);
-//        	}
-//        }
-//        catch (Exception ex)
-//        {
-//        	List<Weather> w = new ArrayList<Weather>();
-//        	w.add(new Weather());
-//        	System.out.println("Exception::");ex.printStackTrace();
-//        	return new ResponseEntity<List<Weather>>(w,HttpStatus.BAD_REQUEST);
-//        }
-        return null;
+
+           return 	wInterface.getWeatherbyDate(inputDate);
 		
 	}
 	
